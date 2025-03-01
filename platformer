@@ -18,9 +18,8 @@ font.init()
 font2 = font.Font(None, 36)
 
 img_back = 'background.jpg'
-img_bullet = 'bullet.png'
-img_hero = 'raketa.png'
-img_enemy = 'Kars.png'
+img_hero = 'Ricardo.png'
+img_enemy = 'mario.png'
 
 clock = time.Clock()
 FPS = 60
