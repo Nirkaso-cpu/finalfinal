@@ -6,6 +6,7 @@ mixer.init()
 mixer.music.load('phonemusic.ogg')
 mixer.music.play()
 fire_sound = mixer.Sound('babax.ogg')
+fire_sound = mixer.Sound('babax.ogg')
 
 font.init()
 font1 = font.Font(None, 80)
