@@ -3,10 +3,10 @@ from random import randint
 import time as pytime
 
 mixer.init()
-mixer.music.load('phonemusic.ogg')
+mixer.music.load('background.ogg')
 mixer.music.play()
-fire_sound = mixer.Sound('babax.ogg')
-fire_sound = mixer.Sound('babax.ogg')
+fire_sound = mixer.Sound('death.ogg')
+
 
 font.init()
 font1 = font.Font(None, 80)
