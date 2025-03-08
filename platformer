@@ -52,6 +52,7 @@ class Player(GameSprite):
             self.rect.x -= self.speed
         if keys[K_RIGHT] and self.rect.x < win_width - 80:
             self.rect.x += self.speed
+        if keys[K_UP] and self.rect.y 
 
 class Enemy(GameSprite):
     def update(self):
