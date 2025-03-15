@@ -85,7 +85,7 @@ life = 3
 
 w1 = Wall(100, 20, 450, 10)
 w2 = Wall(100, 480, 350, 10)
-w3 = Wall(100, 20, 10, 380)
+w3 = Wall(100, 120, 10, 360)
 w4 = Wall(200, 130, 10, 350)
 w5 = Wall(450, 130, 10, 360)
 w6 = Wall(300, 20, 10, 350)
@@ -159,4 +159,4 @@ while game:
     
 
     display.update()
-    clock.tick(FPS) 
+    clock.tick(FPS)          
