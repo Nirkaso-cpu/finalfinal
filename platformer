@@ -86,12 +86,25 @@ life = 3
 w1 = Wall(100, 20, 450, 10)
 w2 = Wall(100, 480, 350, 10)
 w3 = Wall(100, 120, 10, 360)
-w4 = Wall(200, 130, 10, 350)
+w4 = Wall(205, 20, 10, 365)
 w5 = Wall(450, 130, 10, 360)
-w6 = Wall(300, 20, 10, 350)
-w7 = Wall(390, 120, 130, 10)
+w6 = Wall(210, 375, 150, 10)
+w7 = Wall(325, 260, 130, 10)
+w8 = Wall(210, 135, 150, 10)
+w9 = Wall(450, 130, 140, 10)
+w10 = Wall(560, 230, 140, 10)
 
-walls =  [w1, w2, w3, w4, w5, w6, w7]
+walls =  [w1, w2, w3, w4, w5, w6, w7, w8, w9, w10]
+
+wl1 = Wall(100, 20, 450, 10)
+wl2 = Wall(100, 480, 350, 10)
+wl3 = Wall(100, 20, 10, 360)
+wl4 = Wall(200, 130, 10, 350)
+wl5 = Wall(450, 130, 10, 360)
+wl6 = Wall(300, 20, 10, 350)
+wl7 = Wall(390, 120, 130, 10)
+
+walls_1 = [wl1, wl2, wl3, wl4, wl5, wl6, wl7]
 
 game = True
 finish = False
@@ -126,37 +139,48 @@ while game:
         monster.reset()
 
     if map == 1:
-        for wall in walls:
+        for wall in walls_1:
             wall.draw_wall()
     else:
-            wl1 = Wall(100, 20, 450, 10)
-            wl2 = Wall(100, 480, 350, 10)
-            wl3 = Wall(100, 20, 10, 380)
-            wl4 = Wall(200, 130, 10, 350)
-            wl5 = Wall(450, 130, 10, 360)
-            wl6 = Wall(300, 20, 10, 350)
-            wl7 = Wall(390, 120, 130, 10)
+        for wall in walls:
+            wall.draw_wall()
 
-    walls1 =  [w1, w2, w3, w4, w5, w6, w7]
 
-    for wall in walls:
-        if sprite.collide_rect(player, wall) and life > 0:
-            life -= 1
-            count = font.render(str(life), True, (255, 0, 80))
-            player.rect.x = 5
-            player.rect.y = win_height - 80
-            
-        elif sprite.collide_rect(player, wall) and life == 0:
-            window.blit(lose, (200, 200))
-            mixer.music.stop()
-            death.play()
+    if map == 1:
+        for wall in walls_1:
+            if sprite.collide_rect(player, wall) and life > 0:
+                life -= 1
+                count = font.render(str(life), True, (255, 0, 80))
+                player.rect.x = 5
+                player.rect.y = win_height - 80
+                
+            elif sprite.collide_rect(player, wall) and life == 0:
+                window.blit(lose, (200, 200))
+                mixer.music.stop()
+                death.play()
 
-        window.blit(count, (20, 20))
+    if map > 1:
+        for wall in walls:
+            if sprite.collide_rect(player, wall) and life > 0:
+                life -= 1
+                count = font.render(str(life), True, (255, 0, 80))
+                player.rect.x = 5
+                player.rect.y = win_height - 80
+                
+            elif sprite.collide_rect(player, wall) and life == 0:
+                window.blit(lose, (200, 200))
+                mixer.music.stop()
+                death.play()
 
-    if sprite.collide_rect(player, monster):
+    window.blit(count, (20, 20))
+
+    if sprite.collide_rect(player, monster) and map == 1:
+        map += 1
+
+    if sprite.collide_rect(player, monster) and map > 1:
         finish = True
         window.blit(win, (200,200))
     
 
     display.update()
-    clock.tick(FPS)          
+    clock.tick(FPS)   
